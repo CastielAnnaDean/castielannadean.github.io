@@ -1,67 +1,92 @@
-Hello World assignment needs left to do (4) 5 9
+Hello World assignment needs left to do (4) 9
 
 <!DOCTYPE html>
+
+<head>
+    <style type="text/css">
+        h1{background-color:bisque;}
+        .Start {
+            background-color: blue;
+            width:500px;
+            height: 179px;
+            position: absolute;
+            left:0px;
+        }
+
+        .Middle {
+            background-color: aqua;
+            width: 500px;
+            position: absolute;
+            left: 0px;
+        }
+
+    </style>
+</head>
 <html>
 <body>
-    <table style="text-align:center;">
-        <tr><td>Subject and photographer</td><td>Photo</td></tr>
-        <tr><td>Clouds by Snapwire </td><td><img src="https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?cs=srgb&dl=above-atmosphere-clouds-37728.jpg&fm=jpg" width="300" height="150" /></td></tr>
-        <tr><td>Lava by Phil Kallahar</td><td><img src="https://images.pexels.com/photos/983200/pexels-photo-983200.jpeg?cs=srgb&dl=art-bark-bright-983200.jpg&fm=jpg" width="300" height="150" /></td></tr>
-        <tr><td>Snowflake by Egor Kamelev</td><td><img src="https://images.pexels.com/photos/813871/pexels-photo-813871.jpeg?cs=srgb&dl=art-blur-close-up-813871.jpg&fm=jpg" width="300" height="150" /></td></tr>
-        <table>
+    <div class="Start">
+        <table style="text-align:center;">
+            <tr><td>Subject and photographer</td><td>Photo</td></tr>
+            <tr><td>Clouds by Snapwire </td><td><img src="https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?cs=srgb&dl=above-atmosphere-clouds-37728.jpg&fm=jpg" alt="Clouds" width="300" height="150" /></td></tr>
+            <tr><td>Lava by Phil Kallahar</td><td><img src="https://images.pexels.com/photos/983200/pexels-photo-983200.jpeg?cs=srgb&dl=art-bark-bright-983200.jpg&fm=jpg" alt="Lava" width="300" height="150" /></td></tr>
+            <tr><td>Snowflake by Egor Kamelev</td><td><img src="https://images.pexels.com/photos/813871/pexels-photo-813871.jpeg?cs=srgb&dl=art-blur-close-up-813871.jpg&fm=jpg" alt="Snowflake" width="300" height="150" /></td></tr>
+            <table>
+    </div>
 
-            <p>Places to visit:</p>
-            <ul style=" list-style-type:square">
-                <li>Minnesota</li>
-                <li>Great Britain</li>
-                <li>New Orleans</li>
-                <li>Texas</li>
-            </ul>
+    <div class="Middle">
+        <h1><p>Places to visit:</p></h1>
+        <ul style=" list-style-type:square">
+            <li>Minnesota</li>
+            <li>Great Britain</li>
+            <li>New Orleans</li>
+            <li>Texas</li>
+    </div>
+    </ul>
 
-            <script>
-                function permitdrop(event) {
-                    event.preventDefault();
-                }
+    <script>
+        function permitdrop(event) {
+            event.preventDefault();
+        }
 
-                function drag(event) {
-                    event.dataTransfer.setData("Text", event.target.id)
-                }
+        function drag(event) {
+            event.dataTransfer.setData("Text", event.target.id)
+        }
 
-                function drop(event) {
-                    event.preventDefault();
-                    var data = event.dataTransfer.getData("Text");
-                    event.target.appendChild(document.getElementById(data));
-                }
-            </script>
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
 
-            <img src="https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?cs=srgb&dl=above-atmosphere-clouds-37728.jpg&fm=jpg" draggable="true" id="cloud" width="300" height="150" ondragstart="drag(event)" />
-            <img src="https://images.pexels.com/photos/983200/pexels-photo-983200.jpeg?cs=srgb&dl=art-bark-bright-983200.jpg&fm=jpg" draggable="true" id="lava" width="300" height="150" ondragstart="drag(event)" />
-            <img src="https://images.pexels.com/photos/813871/pexels-photo-813871.jpeg?cs=srgb&dl=art-blur-close-up-813871.jpg&fm=jpg" draggable="true" id="snowflake" width="300" height="150" ondragstart="drag(event)" />
-            <br>
+    <img src="https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?cs=srgb&dl=above-atmosphere-clouds-37728.jpg&fm=jpg" draggable="true" id="cloud" width="300" height="150" ondragstart="drag(event)" />
+    <img src="https://images.pexels.com/photos/983200/pexels-photo-983200.jpeg?cs=srgb&dl=art-bark-bright-983200.jpg&fm=jpg" draggable="true" id="lava" width="300" height="150" ondragstart="drag(event)" />
+    <img src="https://images.pexels.com/photos/813871/pexels-photo-813871.jpeg?cs=srgb&dl=art-blur-close-up-813871.jpg&fm=jpg" draggable="true" id="snowflake" width="300" height="150" ondragstart="drag(event)" />
+    <br>
 
-            <div ondragover="permitdrop(event)" style="background-color:yellow; width:300px; height:150px"
-                ondrop="drop(event)" style="background-color: yellow;
+    <div ondragover="permitdrop(event)" style="background-color:yellow; width:300px; height:150px"
+         ondrop="drop(event)" style="background-color: yellow;
                 width:400px; height:300px">
-            </div>
+    </div>
 
-            <form method="POST" onSubmit="return verifyForm(this);">
-                Animal<br>
-                <input type="text" name="animal"><div id="animalMsg" style="display:none;"><span style="color:red;">Please fill with an animal you like.</span></div>
-                <br>
-                Animal's name<br>
-                <input type="text" name="name"><div id="nameMsg" style="display:none;"><span style="color:red;">Please give your animal a name.</span></div>
-                <br>
-                <input type="submit" value="Submit">
-                <br>
-            </form>
+    <form method="POST" onSubmit="return verifyForm(this);">
+        Animal<br>
+        <input type="text" name="animal"><div id="animalMsg" style="display:none;"><span style="color:red;">Please fill with an animal you like.</span></div>
+        <br>
+        Animal's name<br>
+        <input type="text" name="name"><div id="nameMsg" style="display:none;"><span style="color:red;">Please give your animal a name.</span></div>
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+    </form>
 
-            Game done at KAMK for Assembly
-            <br>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/m_EoejDePXk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br>
-            <br> KAMK location
-            <br>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1735.4483392220823!2d27.71445384854498!3d64.2166618698733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfi!2sfi!4v1571725812649!5m2!1sfi!2sfi" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <h1>Game done at KAMK for Assembly</h1>
+    <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/m_EoejDePXk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <br> <h1>KAMK location</h1>
+    <br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1735.4483392220823!2d27.71445384854498!3d64.2166618698733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfi!2sfi!4v1571725812649!5m2!1sfi!2sfi" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 </body>
 <script type="Text/JavaScript">
     function verifyForm(form) {
@@ -97,5 +122,5 @@ Hello World assignment needs left to do (4) 5 9
             return true;
         }
     }
-    </script>
-</html >
+</script>
+</html>
